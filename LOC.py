@@ -110,6 +110,12 @@ if command == "run Data_Entry":
 elif command == "run Brief"
     print("Welcome to the Lore 3.0 Briefing Room.")
     brief_code = input("Please input the Briefing Code provided by the Host:")
+    
+    if brief_code == "tbc1":
+    	i = 0
+    	print("Operation name: %s" % oplist[i])
+    	print("Description: %s" % opdesclist[i])
+
 
 else:
     print("Shutting Down")
