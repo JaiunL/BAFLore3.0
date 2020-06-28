@@ -35,59 +35,70 @@ time.sleep(0.5)
 
 command = input("\nLOC_CONSOLE>%s >>" %UI)
 
-if command == "run LOC_module":
+operation_code = ""
+operation_description = ""
+outcome = ""
+Secondary_Objective = ""
+nextopcode = ""
+nextopdesc = ""
+
+##SECTION BREAK
+oplist = ["test1", "test_1F0", "test_1F1", "test_1F2", "test_1S0", "test2", "test_2F0", "test_2F1", "test_2F2", "test_2S0"]
+opdesclist = ["test1_desc", "test_1F0_desc", "test_1F1_desc", "test_1F2_desc", "test_1S0_desc", "test2_desc", "test_2F0_desc", "test_2F1_desc", "test_2F2_desc", "test_2S0_desc"]
+##SECTION BREAK
+if command == "run Data_Entry":
     i = 1
 
     while i > 0:
 
-        operation_code = input("CONSOLE >> Please specify the Operation Code: \nLOC_CONSOLE>%s >>" % UI)
-        operation_description = ""
-        outcome = ""
+        def Data_Entry ():
+            global operation_code
+            global outcome
+            global KIA
+            global Secondary_Objective
 
-        ##SECTION BREAK
-
-
-
-        if operation_code == "test1":
+            operation_code = input("CONSOLE >> Please specify the Operation Code: \nLOC_CONSOLE>%s >>" % UI)
             outcome = input("CONSOLE >> Please input the outcome in either S or F. [S]uccess / [F]ail:  \nLOC_CONSOLE>%s >>" % UI)
             KIA = int(input("CONSOLE >> Please input the percentage of KIAs compared to attendees. Round up to a natural number: \nLOC_CONSOLE>%s >>" % UI))
             Secondary_Objective = input("CONSOLE >> Please input whether or not secondary objectives were met. [Y]es / [N]o. Input Y if there were none: \nLOC_CONSOLE>%s >>" % UI)
 
-            if outcome == "F":
-                operation_code = "test_F0"
+            ## process area
 
-            elif outcome == "S":
-                if KIA >= 50:
-                    operation_code = "test_F1"
-                elif KIA <= 50:
-                    if Secondary_Objective == "Y":
-                        operation_code = "test_S1"
-                    elif Secondary_Objective == "N":
-                        operation_code = "test_F2"
+            ## test1
 
-        if operation_code == "test1":
-            operation_description = "test1_desc"
+            if operation_code == "test1" and outcome == "F":
+                i = 1
 
-        elif operation_code == "test_F0":
-            operation_description = "testF0_desc"
+            elif operation_code == "test1" and outcome == "S" and KIA >= 51:
+                i = 2
 
-        elif operation_code == "test_F1":
-            operation_description = "testF1_desc"
+            elif operation_code == "test1" and outcome == "S" and KIA <= 50 and Secondary_Objective == "N":
+                i = 3
 
-        elif operation_code == "test_F2":
-            operation_description = "testF2_desc"
+            elif operation_code == "test1" and outcome == "S" and KIA <= 50 and Secondary_Objective == "Y":
+                i = 4
 
-        elif operation_code == "test_S1":
-            operation_description = "testS1_desc"
+            ## test2
 
-        else:
-            print("Taft")
-            sys.exit()
+            elif operation_code == "test2" and outcome == "F":
+                i = 6
 
-        print("CONSOLE >> Next Operation: %s" % operation_code )
-        time.sleep(2)
-        print("CONSOLE >> Description: %s" % operation_description)
-        time.sleep(5)
+            elif operation_code == "test2" and outcome == "S" and KIA >= 51:
+                i = 7
+
+            elif operation_code == "test2" and outcome == "S" and KIA <= 50 and Secondary_Objective == "N":
+                i = 8
+
+            elif operation_code == "test2" and outcome == "S" and KIA <= 50 and Secondary_Objective == "Y":
+                i = 9
+
+            time.sleep(0.5)
+            print("Next operation: %s" % oplist[i])
+            time.sleep(2)
+            print("Next operation description: %s" % opdesclist[i])
+            time.sleep(5)
+        Data_Entry()
+
 
         continue_question = input("\nCONSOLE >> Continue? [Y/N] \nLOC_CONSOLE>%s >>" % UI)
 
