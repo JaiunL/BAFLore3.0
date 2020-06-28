@@ -9,10 +9,19 @@ UAC = input("User Authentication Code:")
 UI = ""
 
 if UAC == "f29132de8ee257d6f4c3ff8459681219":
-    UI = "[PRG] Jaiun - 7917"
+   UI = "[PRG] Jaiun - 7917"
 
-elif UAC == "2fc76ade25d67d6a566ac74173e1775a":
-    UI = "[CDS] W_olfIron - 5254"
+elif UAC == "administrator":
+     UI = "sys_svc"
+
+elif UAC == "eb17dbfe63cd214fc11203a86608d679":
+     UI = "[CDS] W_olfIron - 5254"
+
+elif UAC == "a6ce6593c70d323f25a1872d51c37b40":
+     UI = "[CAS] Newwly - 8970"
+
+elif UAC == "c1e6c11bf719ea7d0e20bf7e125adb39":
+     UI = "[CGS] Tedz2 - 2350"
 
 else:
     print("Authentication Error, Terminating Process...")
