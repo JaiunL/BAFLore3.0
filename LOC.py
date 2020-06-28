@@ -8,21 +8,12 @@ time.sleep(1)
 UAC = input("User Authentication Code:")
 UI = ""
 
-if UAC == "f29132de8ee257d6f4c3ff8459681219":
-   UI = "[PRG] Jaiun - 7917"
+## security block
 
-elif UAC == "administrator":
+if UAC == "administrator":
      UI = "sys_svc"
 
-elif UAC == "eb17dbfe63cd214fc11203a86608d679":
-     UI = "[CDS] W_olfIron - 5254"
-
-elif UAC == "a6ce6593c70d323f25a1872d51c37b40":
-     UI = "[CAS] Newwly - 8970"
-
-elif UAC == "c1e6c11bf719ea7d0e20bf7e125adb39":
-     UI = "[CGS] Tedz2 - 2350"
-
+## security block end
 else:
     print("Authentication Error, Terminating Process...")
     time.sleep(1)
