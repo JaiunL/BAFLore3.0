@@ -107,6 +107,10 @@ if command == "run Data_Entry":
         elif continue_question == "Y":
             print("\n")
 
+elif command == "run Brief"
+    print("Welcome to the Lore 3.0 Briefing Room.")
+    brief_code = input("Please input the Briefing Code provided by the Host:")
+
 else:
     print("Shutting Down")
     sys.exit()
