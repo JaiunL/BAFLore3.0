@@ -5,12 +5,20 @@ import time
 print("British Armed Forces, Lore 3.0 Development Group \nLore Operations Console")
 time.sleep(1)
 
-PL = int(input("Clerance Level:"))
+CL = int(input("Clerance Level:"))
 
 ##if statement prompt
-if UAC >= 3:
+if CL >= 3:
     UAC = input("Clearance Level 3 and higher require a User Authentication Code issued by a Sys.Ops administrator. \nPlease input your User Authentication Code:")
-    UI = ""
+
+    if UAC == "administrator":
+        UI = "Sys.Ops."
+
+    else:
+        print("Authentication Error. Shutting down.")
+        time.sleep(2)
+        sys.exit()
+
 else:
     UI = "USER"
 ### need security check for UAC PL
@@ -55,6 +63,10 @@ opdesclist = ["test1_desc", "test_1F0_desc", "test_1F1_desc", "test_1F2_desc", "
               "test_2F0_desc", "test_2F1_desc", "test_2F2_desc", "test_2S0_desc"]
 ##SECTION BREAK
 if command == "run Data_Entry":
+    if CL <= 3:
+        print("Unauthorized Access Attempt. Terminating Session.")
+        sys.exit()
+
     i = 1
 
     while i > 0:
@@ -119,7 +131,7 @@ if command == "run Data_Entry":
         elif continue_question == "Y":
             print("\n")
 
-elif command == "run Brief"
+elif command == "run Brief":
     print("Welcome to the Lore 3.0 Briefing Room.")
     brief_code = input("Please input the Briefing Code provided by the Host:")
 
