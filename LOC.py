@@ -5,13 +5,19 @@ import time
 print("British Armed Forces, Lore 3.0 Development Group \nLore Operations Console")
 time.sleep(1)
 
+PL = input("Permission Level:")
+
 UAC = input("User Authentication Code:")
 UI = ""
 
 ## security block
 
+
 if UAC == "administrator":
      UI = "sys_svc"
+     
+elif PL == "1" or PL == "2":
+	UI = "USER"
 
 ## security block end
 else:
