@@ -5,30 +5,29 @@ import time
 print("British Armed Forces, Lore 3.0 Development Group \nLore Operations Console")
 time.sleep(1)
 
-PL = input("Permission Level:")
+PL = int(input("Clerance Level:"))
 
 ##if statement prompt
-UAC = input("User Authentication Code:")
-UI = ""
+if UAC >= 3:
+    UAC = input("Clearance Level 3 and higher require a User Authentication Code issued by a Sys.Ops administrator. \nPlease input your User Authentication Code:")
+    UI = ""
+else:
+    UI = "USER"
 ### need security check for UAC PL
+## L1 - LRs
+## L2 - MRs
+## L3 - HRs
+## L4 - HC
+## L5 - Lore Devs
+## L6 - CoSC
+## L7 - Sys.Ops.
 ## security block
 
 
-if UAC == "administrator":
-     UI = "sys_svc"
-     
-elif PL == "1" or PL == "2":
-	UI = "USER"
-
 ## security block end
-else:
-    print("Authentication Error, Terminating Process...")
-    time.sleep(1)
-    sys.exit
 
 
 print("---------------\nWelcome, %s" % UI)
-
 
 a = 0
 for a in range(0, 5):
@@ -40,7 +39,7 @@ for a in range(0, 5):
 sys.stdout.write('\r' + "Ready.")
 time.sleep(0.5)
 
-command = input("\nLOC_CONSOLE>%s >>" %UI)
+command = input("\nLOC_CONSOLE>%s >>" % UI)
 
 operation_code = ""
 operation_description = ""
@@ -50,24 +49,29 @@ nextopcode = ""
 nextopdesc = ""
 
 ##SECTION BREAK
-oplist = ["test1", "test_1F0", "test_1F1", "test_1F2", "test_1S0", "test2", "test_2F0", "test_2F1", "test_2F2", "test_2S0"]
-opdesclist = ["test1_desc", "test_1F0_desc", "test_1F1_desc", "test_1F2_desc", "test_1S0_desc", "test2_desc", "test_2F0_desc", "test_2F1_desc", "test_2F2_desc", "test_2S0_desc"]
+oplist = ["test1", "test_1F0", "test_1F1", "test_1F2", "test_1S0", "test2", "test_2F0", "test_2F1", "test_2F2",
+          "test_2S0"]
+opdesclist = ["test1_desc", "test_1F0_desc", "test_1F1_desc", "test_1F2_desc", "test_1S0_desc", "test2_desc",
+              "test_2F0_desc", "test_2F1_desc", "test_2F2_desc", "test_2S0_desc"]
 ##SECTION BREAK
 if command == "run Data_Entry":
     i = 1
 
     while i > 0:
 
-        def Data_Entry ():
+        def Data_Entry():
             global operation_code
             global outcome
             global KIA
             global Secondary_Objective
 
             operation_code = input("CONSOLE >> Please specify the Operation Code: \nLOC_CONSOLE>%s >>" % UI)
-            outcome = input("CONSOLE >> Please input the outcome in either S or F. [S]uccess / [F]ail:  \nLOC_CONSOLE>%s >>" % UI)
-            KIA = int(input("CONSOLE >> Please input the percentage of KIAs compared to attendees. Round up to a natural number: \nLOC_CONSOLE>%s >>" % UI))
-            Secondary_Objective = input("CONSOLE >> Please input whether or not secondary objectives were met. [Y]es / [N]o. Input Y if there were none: \nLOC_CONSOLE>%s >>" % UI)
+            outcome = input(
+                "CONSOLE >> Please input the outcome in either S or F. [S]uccess / [F]ail:  \nLOC_CONSOLE>%s >>" % UI)
+            KIA = int(input(
+                "CONSOLE >> Please input the percentage of KIAs compared to attendees. Round up to a natural number: \nLOC_CONSOLE>%s >>" % UI))
+            Secondary_Objective = input(
+                "CONSOLE >> Please input whether or not secondary objectives were met. [Y]es / [N]o. Input Y if there were none: \nLOC_CONSOLE>%s >>" % UI)
 
             ## process area
 
@@ -104,8 +108,9 @@ if command == "run Data_Entry":
             time.sleep(2)
             print("Next operation description: %s" % opdesclist[i])
             time.sleep(5)
-        Data_Entry()
 
+
+        Data_Entry()
 
         continue_question = input("\nCONSOLE >> Continue? [Y/N] \nLOC_CONSOLE>%s >>" % UI)
 
@@ -117,11 +122,11 @@ if command == "run Data_Entry":
 elif command == "run Brief"
     print("Welcome to the Lore 3.0 Briefing Room.")
     brief_code = input("Please input the Briefing Code provided by the Host:")
-    
+
     if brief_code == "tbc1":
-    	i = 0
-    	print("Operation name: %s" % oplist[i])
-    	print("Description: %s" % opdesclist[i])
+        i = 0
+        print("Operation name: %s" % oplist[i])
+        print("Description: %s" % opdesclist[i])
 
 
 else:
