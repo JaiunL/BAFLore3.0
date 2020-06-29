@@ -56,12 +56,22 @@ Secondary_Objective = ""
 nextopcode = ""
 nextopdesc = ""
 
-##SECTION BREAK
-oplist = ["test1", "test_1F0", "test_1F1", "test_1F2", "test_1S0", "test2", "test_2F0", "test_2F1", "test_2F2",
-          "test_2S0"]
-opdesclist = ["test1_desc", "test_1F0_desc", "test_1F1_desc", "test_1F2_desc", "test_1S0_desc", "test2_desc",
-              "test_2F0_desc", "test_2F1_desc", "test_2F2_desc", "test_2S0_desc"]
-##SECTION BREAK
+
+
+
+
+
+##DATABASE
+oplist = ["test1", "test_1F0", "test_1F1", "test_1F2", "test_1S0", "test2", "test_2F0", "test_2F1", "test_2F2", "test_2S0"]
+opdesclist = ["test1_desc", "test_1F0_desc", "test_1F1_desc", "test_1F2_desc", "test_1S0_desc", "test2_desc", "test_2F0_desc", "test_2F1_desc", "test_2F2_desc", "test_2S0_desc"]
+opbriefcodelist = ["tbc1", "tbc2", "tbc3", "tbc4", "tbc5", "tbc6", "tbc7", "tbc8", "tbc9", "tbc10"]
+opbrieflist = ["test1_desc", "test_1F0_desc", "test_1F1_desc", "test_1F2_desc", "test_1S0_desc", "test2_desc", "test_2F0_desc", "test_2F1_desc", "test_2F2_desc", "test_2S0_desc"]
+##DATABASE
+
+
+
+
+
 if command == "run Data_Entry":
     if CL <= 3:
         print("Unauthorized Access Attempt. Terminating Session.")
@@ -127,18 +137,32 @@ if command == "run Data_Entry":
         continue_question = input("\nCONSOLE >> Continue? [Y/N] \nLOC_CONSOLE>%s >>" % UI)
 
         if continue_question == "N":
-            sys.exit()
+            break
         elif continue_question == "Y":
             print("\n")
 
+##BRIEF
+
 elif command == "run Brief":
-    print("Welcome to the Lore 3.0 Briefing Room.")
+    print(">>>>>Welcome to the Lore 3.0 Briefing Room.<<<<<")
     brief_code = input("Please input the Briefing Code provided by the Host:")
 
     if brief_code == "tbc1":
         i = 0
         print("Operation name: %s" % oplist[i])
-        print("Description: %s" % opdesclist[i])
+        print("Description: %s" % opbrieflist[i])
+
+##HELP
+
+elif command == "help":
+    print("The following are a list of available commands, their usage, and the required Clearance Level. \n")
+    print("run Data_Entry - Data-Entry module used for inputting event results - CL 3+")
+    print("run Brief - Lore 3.0 Briefing Room - CL 1+")
+    ##print("open credentials.sec - Browse UAC codes - CL 6+")
+    ##print("run Overview - Lore 3.0 Storyline - CL 4+")
+    ##print("run Op_Search - Lore 3.0 Operations Database - CL 3+")
+    ##print("run Target_Database - Lore 3.0 Target Database - CL 1+")
+    print("help - display a list of commands and a short description - CL 1+")
 
 
 else:
