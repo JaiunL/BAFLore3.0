@@ -5,7 +5,7 @@ import time
 print("British Armed Forces, Lore 3.0 Development Group \nLore Operations Console")
 time.sleep(1)
 
-CL = int(input("Clerance Level:"))
+CL = int(input("Clearance Level:"))
 
 ##if statement prompt
 if CL >= 3:
@@ -21,7 +21,7 @@ if CL >= 3:
 
 else:
     UI = "USER"
-### need security check for UAC PL
+
 ## L1 - LRs
 ## L2 - MRs
 ## L3 - HRs
@@ -158,16 +158,24 @@ elif command == "help":
     print("The following are a list of available commands, their usage, and the required Clearance Level. \n")
     print("run Data_Entry - Data-Entry module used for inputting event results - CL 3+")
     print("run Brief - Lore 3.0 Briefing Room - CL 1+")
-    ##print("open credentials.sec - Browse UAC codes - CL 6+")
+    print("open credentials.sec - Browse UAC codes/CLs - CL 6+")
     ##print("run Overview - Lore 3.0 Storyline - CL 4+")
     ##print("run Op_Search - Lore 3.0 Operations Database - CL 3+")
     ##print("run Target_Database - Lore 3.0 Target Database - CL 1+")
     print("help - display a list of commands and a short description - CL 1+")
 
 
+##open credentials.sec
+
+elif command == "open credentials.sec":
+    print("format : username - UAC - Clearance Level\n")
+    print("admin - administrator - L7")
+    print(">>>>>END<<<<<")
+
+
+
+##Exit
+
 else:
     print("Shutting Down")
     sys.exit()
-
-
-
