@@ -163,6 +163,7 @@ elif command == "help":
     ##print("run Op_Search - Lore 3.0 Operations Database - CL 3+")
     ##print("run Target_Database - Lore 3.0 Target Database - CL 1+")
     print("help - display a list of commands and a short description - CL 1+")
+    print("description - display the description for this program - CL 1+")
 
 
 ##open credentials.sec
@@ -173,6 +174,10 @@ elif command == "open credentials.sec":
     print(">>>>>END<<<<<")
 
 
+##description
+
+elif command == "description":
+    print("The Lore Operations Console is a component of the British Armed Forces Lore 3.0 program.\nDeveloped by Jaiun\nCredits to auto-py-to-exe for conversion\n")
 
 ##Exit
 
