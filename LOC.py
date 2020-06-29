@@ -5,14 +5,15 @@ import time
 print("British Armed Forces, Lore 3.0 Development Group \nLore Operations Console")
 time.sleep(1)
 
-CL = int(input("Clearance Level:"))
+CL = int(input("This program requires a Clearance Level to access. Please input your Clearance Level:"))
 
 ##if statement prompt
 if CL >= 3:
-    UAC = input("Clearance Level 3 and higher require a User Authentication Code issued by a Sys.Ops administrator. \nPlease input your User Authentication Code:")
+    UAC = input("Clearance Level 3 and higher require a User Authentication Code issued by a Sys.Ops administrator to proceed. \nPlease input your User Authentication Code:")
 
     if UAC == "administrator":
         UI = "Sys.Ops."
+        print("Your identity has been verified. You now have Level %d permissions on this Session." % CL )
 
     else:
         print("Authentication Error. Shutting down.")
@@ -164,7 +165,8 @@ elif command == "help":
     ##print("run Target_Database - Lore 3.0 Target Database - CL 1+")
     print("help - display a list of commands and a short description - CL 1+")
     print("description - display the description for this program - CL 1+")
-    print("ver - version - CL+")
+    print("ver - version - CL 1+")
+    print("whoami - display user information - CL 1+")
 
 
 ##open credentials.sec
