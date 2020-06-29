@@ -164,6 +164,7 @@ elif command == "help":
     ##print("run Target_Database - Lore 3.0 Target Database - CL 1+")
     print("help - display a list of commands and a short description - CL 1+")
     print("description - display the description for this program - CL 1+")
+    print("ver - version - CL+")
 
 
 ##open credentials.sec
@@ -178,6 +179,13 @@ elif command == "open credentials.sec":
 
 elif command == "description":
     print("The Lore Operations Console is a component of the British Armed Forces Lore 3.0 program.\nDeveloped by Jaiun\nCredits to auto-py-to-exe for conversion\n")
+
+
+##ver
+
+elif command == "ver":
+    print("Version [BETA] 0.1.6, build 3\nLast Updated: 20200629")
+
 
 ##Exit
 
