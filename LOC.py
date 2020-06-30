@@ -199,14 +199,21 @@ def command_module():
         print("Clerance Level : %d" % CL)
 
 
+    ##run Target_Database
+
+    ##elif command == "run Target_Database":
+    ##    print("Welcome to the British Armed Forces Target Database. Please select the type of the target you wish to search and input the number.")
+    ##    print("People - input [1]\nVehicles - input [2]\nBuildings/Locations - input[3]")
+    ##    tartype = int(input("LOC_CONSOLE>%s >>" % UI))
+
     ##Exit
 
     else:
         print("Shutting Down")
         sys.exit()
 
+
 looper = 1
 while looper >= 0:
    command_module()
-
 
