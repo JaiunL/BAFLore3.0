@@ -13,6 +13,7 @@ if CL >= 3:
 
     if UAC == "administrator":
         UI = "Sys.Ops."
+        CL = 7
         print("Your identity has been verified. You now have Level %d permissions on this Session." % CL )
 
     else:
@@ -45,7 +46,7 @@ for a in range(0, 5):
     sys.stdout.write('\r' + b)
     time.sleep(0.5)
 
-sys.stdout.write('\r' + "Ready.")
+sys.stdout.write('\r' + "Ready.                     ")
 time.sleep(0.5)
 
 def command_module():
