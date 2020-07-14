@@ -13,7 +13,6 @@ if CL >= 3:
 
     if UAC == "administrator":
         UI = "Sys.Ops."
-        CL = 7
         print("Your identity has been verified. You now have Level %d permissions on this Session." % CL )
 
     else:
@@ -46,7 +45,7 @@ for a in range(0, 5):
     sys.stdout.write('\r' + b)
     time.sleep(0.5)
 
-sys.stdout.write('\r' + "Ready.                     ")
+sys.stdout.write('\r' + "Ready.")
 time.sleep(0.5)
 
 def command_module():
@@ -68,7 +67,7 @@ def command_module():
     ##DATABASE
     oplist = ["test1", "test_1F0", "test_1F1", "test_1F2", "test_1S0", "test2", "test_2F0", "test_2F1", "test_2F2", "test_2S0"]
     opdesclist = ["test1_desc", "test_1F0_desc", "test_1F1_desc", "test_1F2_desc", "test_1S0_desc", "test2_desc", "test_2F0_desc", "test_2F1_desc", "test_2F2_desc", "test_2S0_desc"]
-    opbriefcodelist = ["tbc1", "tbc2", "tbc3", "tbc4", "tbc5", "tbc6", "tbc7", "tbc8", "tbc9", "tbc10"]
+    ##opbriefcodelist = ["tbc1", "tbc2", "tbc3", "tbc4", "tbc5", "tbc6", "tbc7", "tbc8", "tbc9", "tbc10"]
     opbrieflist = ["test1_desc", "test_1F0_desc", "test_1F1_desc", "test_1F2_desc", "test_1S0_desc", "test2_desc", "test_2F0_desc", "test_2F1_desc", "test_2F2_desc", "test_2S0_desc"]
     ##DATABASE
 
@@ -198,6 +197,10 @@ def command_module():
         print("Username : %s" % UI)
         print("User Authentication Code : %s" % UAC)
         print("Clerance Level : %d" % CL)
+
+
+    ##op_search
+    elif command == "run Op_Search":
 
 
     ##run Target_Database
