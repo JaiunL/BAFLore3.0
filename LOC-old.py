@@ -5,23 +5,38 @@ import time
 print("British Armed Forces, Lore 3.0 Development Group \nLore Operations Console")
 time.sleep(1)
 
-UAC = input("User Authentication Code:")
-UI = ""
+CL = int(input("This program requires a Clearance Level to access. Please input your Clearance Level:"))
 
-if UAC == "f29132de8ee257d6f4c3ff8459681219":
-    UI = "[PRG] Jaiun - 7917"
+##if statement prompt
+if CL >= 3:
+    UAC = input("Clearance Level 3 and higher require a User Authentication Code issued by a Sys.Ops administrator to proceed. \nPlease input your User Authentication Code:")
 
-elif UAC == "2fc76ade25d67d6a566ac74173e1775a":
-    UI = "[CDS] W_olfIron - 5254"
+    if UAC == "administrator":
+        UI = "Sys.Ops."
+        print("Your identity has been verified. You now have Level %d permissions on this Session." % CL )
+
+    else:
+        print("Authentication Error. Shutting down.")
+        time.sleep(2)
+        sys.exit()
 
 else:
-    print("Authentication Error, Terminating Process...")
-    time.sleep(1)
-    sys.exit
+    UI = "USER"
+
+## L1 - LRs
+## L2 - MRs
+## L3 - HRs
+## L4 - HC
+## L5 - Lore Devs
+## L6 - CoSC
+## L7 - Sys.Ops.
+## security block
+
+
+## security block end
 
 
 print("---------------\nWelcome, %s" % UI)
-
 
 a = 0
 for a in range(0, 5):
@@ -33,72 +48,176 @@ for a in range(0, 5):
 sys.stdout.write('\r' + "Ready.")
 time.sleep(0.5)
 
-command = input("\nLOC_CONSOLE>%s >>" %UI)
+def command_module():
 
-if command == "run LOC_module":
-    i = 1
+    command = input("\nLOC_CONSOLE>%s >>" % UI)
 
-    while i > 0:
-
-        operation_code = input("CONSOLE >> Please specify the Operation Code: \nLOC_CONSOLE>%s >>" % UI)
-        operation_description = ""
-        outcome = ""
-
-        ##SECTION BREAK
+    operation_code = ""
+    operation_description = ""
+    outcome = ""
+    Secondary_Objective = ""
+    nextopcode = ""
+    nextopdesc = ""
 
 
 
-        if operation_code == "test1":
-            outcome = input("CONSOLE >> Please input the outcome in either S or F. [S]uccess / [F]ail:  \nLOC_CONSOLE>%s >>" % UI)
-            KIA = int(input("CONSOLE >> Please input the percentage of KIAs compared to attendees. Round up to a natural number: \nLOC_CONSOLE>%s >>" % UI))
-            Secondary_Objective = input("CONSOLE >> Please input whether or not secondary objectives were met. [Y]es / [N]o. Input Y if there were none: \nLOC_CONSOLE>%s >>" % UI)
 
-            if outcome == "F":
-                operation_code = "test_F0"
 
-            elif outcome == "S":
-                if KIA >= 50:
-                    operation_code = "test_F1"
-                elif KIA <= 50:
-                    if Secondary_Objective == "Y":
-                        operation_code = "test_S1"
-                    elif Secondary_Objective == "N":
-                        operation_code = "test_F2"
 
-        if operation_code == "test1":
-            operation_description = "test1_desc"
+    ##DATABASE
+    oplist = ["test1", "test_1F0", "test_1F1", "test_1F2", "test_1S0", "test2", "test_2F0", "test_2F1", "test_2F2", "test_2S0"]
+    opdesclist = ["test1_desc", "test_1F0_desc", "test_1F1_desc", "test_1F2_desc", "test_1S0_desc", "test2_desc", "test_2F0_desc", "test_2F1_desc", "test_2F2_desc", "test_2S0_desc"]
+    ##opbriefcodelist = ["tbc1", "tbc2", "tbc3", "tbc4", "tbc5", "tbc6", "tbc7", "tbc8", "tbc9", "tbc10"]
+    opbrieflist = ["test1_desc", "test_1F0_desc", "test_1F1_desc", "test_1F2_desc", "test_1S0_desc", "test2_desc", "test_2F0_desc", "test_2F1_desc", "test_2F2_desc", "test_2S0_desc"]
+    ##DATABASE
 
-        elif operation_code == "test_F0":
-            operation_description = "testF0_desc"
 
-        elif operation_code == "test_F1":
-            operation_description = "testF1_desc"
 
-        elif operation_code == "test_F2":
-            operation_description = "testF2_desc"
 
-        elif operation_code == "test_S1":
-            operation_description = "testS1_desc"
 
-        else:
-            print("Taft")
+    if command == "run Data_Entry":
+        if CL <= 3:
+            print("Unauthorized Access Attempt. Terminating Session.")
             sys.exit()
 
-        print("CONSOLE >> Next Operation: %s" % operation_code )
-        time.sleep(2)
-        print("CONSOLE >> Description: %s" % operation_description)
-        time.sleep(5)
+        i = 1
 
-        continue_question = input("\nCONSOLE >> Continue? [Y/N] \nLOC_CONSOLE>%s >>" % UI)
+        while i > 0:
 
-        if continue_question == "N":
-            sys.exit()
-        elif continue_question == "Y":
-            print("\n")
+            def Data_Entry():
+                global operation_code
+                global outcome
+                global KIA
+                global Secondary_Objective
 
-else:
-    print("Shutting Down")
-    sys.exit()
+                operation_code = input("CONSOLE >> Please specify the Operation Code: \nLOC_CONSOLE>%s >>" % UI)
+                outcome = input(
+                    "CONSOLE >> Please input the outcome in either S or F. [S]uccess / [F]ail:  \nLOC_CONSOLE>%s >>" % UI)
+                KIA = int(input(
+                    "CONSOLE >> Please input the percentage of KIAs compared to attendees. Round up to a natural number: \nLOC_CONSOLE>%s >>" % UI))
+                Secondary_Objective = input(
+                    "CONSOLE >> Please input whether or not secondary objectives were met. [Y]es / [N]o. Input Y if there were none: \nLOC_CONSOLE>%s >>" % UI)
+
+                ## process area
+
+                ## test1
+
+                if operation_code == "test1" and outcome == "F":
+                    i = 1
+
+                elif operation_code == "test1" and outcome == "S" and KIA >= 51:
+                    i = 2
+
+                elif operation_code == "test1" and outcome == "S" and KIA <= 50 and Secondary_Objective == "N":
+                    i = 3
+
+                elif operation_code == "test1" and outcome == "S" and KIA <= 50 and Secondary_Objective == "Y":
+                    i = 4
+
+                ## test2
+
+                elif operation_code == "test2" and outcome == "F":
+                    i = 6
+
+                elif operation_code == "test2" and outcome == "S" and KIA >= 51:
+                    i = 7
+
+                elif operation_code == "test2" and outcome == "S" and KIA <= 50 and Secondary_Objective == "N":
+                    i = 8
+
+                elif operation_code == "test2" and outcome == "S" and KIA <= 50 and Secondary_Objective == "Y":
+                    i = 9
+
+                time.sleep(0.5)
+                print("Next operation: %s" % oplist[i])
+                time.sleep(2)
+                print("Next operation description: %s" % opdesclist[i])
+                time.sleep(5)
 
 
+            Data_Entry()
+
+            continue_question = input("\nCONSOLE >> Continue? [Y/N] \nLOC_CONSOLE>%s >>" % UI)
+
+            if continue_question == "N":
+                break
+            elif continue_question == "Y":
+                print("\n")
+
+    ##BRIEF
+
+    elif command == "run Brief":
+        print(">>>>>Welcome to the Lore 3.0 Briefing Room.<<<<<")
+        brief_code = input("Please input the Briefing Code provided by the Host:")
+
+        if brief_code == "tbc1":
+            i = 0
+            print("Operation name: %s" % oplist[i])
+            print("Description: %s" % opbrieflist[i])
+
+    ##HELP
+
+    elif command == "help":
+        print("The following are a list of available commands, their usage, and the required Clearance Level. \n")
+        print("run Data_Entry - Data-Entry module used for inputting event results - CL 3+")
+        print("run Brief - Lore 3.0 Briefing Room - CL 1+")
+        print("open credentials.sec - Browse UAC codes/CLs - CL 6+")
+        ##print("run Overview - Lore 3.0 Storyline - CL 4+")
+        ##print("run Op_Search - Lore 3.0 Operations Database - CL 3+")
+        ##print("run Target_Database - Lore 3.0 Target Database - CL 1+")
+        print("help - display a list of commands and a short description - CL 1+")
+        print("description - display the description for this program - CL 1+")
+        print("ver - version - CL 1+")
+        print("whoami - display user information - CL 1+")
+
+
+    ##open credentials.sec
+
+    elif command == "open credentials.sec":
+        print("format : username - UAC - Clearance Level\n")
+        print("admin - administrator - L7")
+        print(">>>>>END<<<<<")
+
+
+    ##description
+
+    elif command == "description":
+        print("The Lore Operations Console is a component of the British Armed Forces Lore 3.0 program.\nDeveloped by Jaiun\nCredits to auto-py-to-exe for conversion\n")
+
+
+    ##ver
+
+    elif command == "ver":
+        print("Version [BETA] 0.1.6, build 3\nLast Updated: 20200629")
+
+
+    ##whoami
+
+    elif command == "whoami":
+        print("Username : %s" % UI)
+        print("User Authentication Code : %s" % UAC)
+        print("Clerance Level : %d" % CL)
+
+
+    ##op_search
+    elif command == "run Op_Search":
+
+
+    ##run Target_Database
+
+    ##elif command == "run Target_Database":
+    ##    print("Welcome to the British Armed Forces Target Database. Please select the type of the target you wish to search and input the number.")
+    ##    print("People - input [1]\nVehicles - input [2]\nBuildings/Locations - input[3]")
+    ##    tartype = int(input("LOC_CONSOLE>%s >>" % UI))
+
+    ##Exit
+
+    else:
+        print("Shutting Down")
+        sys.exit()
+
+
+looper = 1
+while looper >= 0:
+   command_module()
 
