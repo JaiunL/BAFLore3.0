@@ -100,6 +100,9 @@ def command_module():
     b6brieflist = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
     b7brieflist = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
     bb8rieflist = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
+    
+    tarlist_people = ["Black", "White", "Blue", "Green"]
+    tarlist_vehicle = ["V1", "V2", "V3"]
 
     ##DATABASE
 
@@ -741,7 +744,7 @@ def command_module():
     ##description
 
     elif command == "description":
-        print("The Lore Operations Console is a component of the British Armed Forces Lore 3.0 program.\nDeveloped by Jaiun\nCredits to auto-py-to-exe for conversion\n")
+        print("The Lore Operations Console is a component of the British Armed Forces Lore 3.0 program.\nDeveloped by Jaiun, Newwly\nCredits to auto-py-to-exe for exe conversion\n")
 
 
     ##ver
@@ -796,11 +799,20 @@ def command_module():
                 time.sleep(0.4)
 
     ##run Target_Database
+    
+    tarlist_people
 
-    ##elif command == "run Target_Database":
-    ##    print("Welcome to the British Armed Forces Target Database. Please select the type of the target you wish to search and input the number.")
-    ##    print("People - input [1]\nVehicles - input [2]\nBuildings/Locations - input[3]")
-    ##    tartype = int(input("LOC_CONSOLE>%s >>" % UI))
+    elif command == "run Target_Database":
+        print("Welcome to the British Armed Forces Target Database. Please select the type of the target you wish to search and input the number.")
+        print("People - input [1]\nVehicles - input [2]\nBuildings/Locations - input[3]")
+        tartype = int(input("LOC_CONSOLE>%s >>" % UI))
+        
+        if tartype == 1:
+            print(*tarlist_people, sep = ", ")
+            target = input("Input the name of the target would you like to view")
+        
+        
+     
 
     ##Exit
 
