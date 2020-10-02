@@ -13,9 +13,6 @@ elif UAC == "a6ce6593c70d323f25a1872d51c37b40":
 
 elif UAC == "c1e6c11bf719ea7d0e20bf7e125adb39":
      UI = "[CGS] Tedz2 - 2350"
-     
-elif UAC == "8124895c337e2570055dccefefd4b996":
-     UI = "[VDS] Kin - 0848"
 
 elif UAC == "ea23c56aa07532dc425fea6b30336691":
      UI = "[ACM] S_ilent_Taco - 2095"
@@ -25,9 +22,6 @@ elif UAC == "ba5f0662b3edca2ce9efb48320d9bcee":
 
 elif UAC == "73dc7629d2edfe3077ae5871ba96072a":
      UI = "[AML] quinnie28 - 2828"
-
-elif UAC == "7aa770b4d9fae74f6c1b98ee15d5696e":
-     UI = "[WCM] GunniShan - 5171"
      
 elif UAC == "00fc4df9fa487cf30d3887eb49c8b327":
      UI = "[BGD] Valkuirae - 1021"
