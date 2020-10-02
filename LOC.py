@@ -733,6 +733,13 @@ def command_module():
     ##open credentials.sec
 
     elif command == "open credentials.sec":
+        
+        if CL <= 4:
+            print("ERROR 401 - UNAUTHORIZED/nYou do not have sufficient permissions to run this command. Shutting down.")
+            time.sleep(0.7)
+            sys.exit()
+            
+        
         print("format : username - UAC - Clearance Level\n")
         print("admin - administrator - L7")
         print(">>>>>END<<<<<")
