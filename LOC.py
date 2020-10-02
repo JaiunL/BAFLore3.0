@@ -103,6 +103,7 @@ def command_module():
     
     tarlist_people = ["Black", "White", "Blue", "Green"]
     tarlist_vehicle = ["V1", "V2", "V3"]
+    tarlist_building = ["B1", "B2", "B3"]
 
     ##DATABASE
 
@@ -817,7 +818,24 @@ def command_module():
         if tartype == 1:
             print(*tarlist_people, sep = ", ")
             target = input("Input the name of the target would you like to view")
-        
+            
+            if target == "Black":
+                print("Black Description Here")
+            
+            if target == "White":
+                print("White Description Here")
+                
+            if target == "Blue":
+                print("Blue Description Here")
+            
+            
+        if tartype == 2:
+            print(*tarlist_vehicle, sep = ", ")
+            target = input("Input the name of the target would you like to view")
+            
+        if tartype == 1:
+            print(*tarlist_building, sep = ", ")
+            target = input("Input the name of the target would you like to view")
         
      
 
